@@ -6,7 +6,7 @@ target 'l-tech.test' do
   use_frameworks!
 
   # Pods for l-tech.test
-pod 'InputMask', '~> 3.4.1'
+pod 'InputMask'
 pod 'Alamofire', '~> 4.7.3'
 pod 'SwiftyJSON', '~> 4.2.0'
 pod 'AlamofireImage'

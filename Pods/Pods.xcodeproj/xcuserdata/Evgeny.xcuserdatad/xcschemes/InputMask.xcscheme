@@ -14,9 +14,9 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C5450312F0D394D682187C03D4F08FED"
-               BuildableName = "AKMaskField.framework"
-               BlueprintName = "AKMaskField"
+               BlueprintIdentifier = "943EB8EB62641F22D49DC5016CA53EE9"
+               BuildableName = "InputMask.framework"
+               BlueprintName = "InputMask"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

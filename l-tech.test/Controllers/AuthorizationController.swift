@@ -35,10 +35,9 @@ class AuthorizationController: UIViewController, MaskedTextFieldDelegateListener
         
         mask = getCodeForMask(mask: maskExpression)
         
-        listener = MaskedTextFieldDelegate(format: mask)
+        listener = MaskedTextFieldDelegate(primaryFormat: mask)
         listener?.delegate = self
         textPhoneNumber.delegate = listener
-        textPhoneNumber.isEnabled = true
         textPhoneNumber.placeholder = maskExpression
     }
     
