@@ -13,7 +13,6 @@
 		5C2B7CF822BA760100EF045E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C2B7CF722BA760100EF045E /* Assets.xcassets */; };
 		5C2B7CFB22BA760100EF045E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C2B7CF922BA760100EF045E /* LaunchScreen.storyboard */; };
 		5C72C59E22BCFD88003B453D /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C72C59D22BCFD88003B453D /* DetailController.swift */; };
-		5CAF1E4522BAA7CE00960770 /* AKMaskField.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CAF1E4422BAA7CE00960770 /* AKMaskField.framework */; };
 		5CAF1E4722BAAB0B00960770 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CAF1E4622BAAB0B00960770 /* Alamofire.framework */; };
 		5CAF1E4D22BAE0E800960770 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CAF1E4C22BAE0E800960770 /* SwiftyJSON.framework */; };
 		5CAF1E5022BBBD7500960770 /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF1E4F22BBBD7500960770 /* ListController.swift */; };
@@ -34,10 +33,7 @@
 		5C2B7CFA22BA760100EF045E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C2B7CFC22BA760100EF045E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C72C59D22BCFD88003B453D /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
-		5CAF1E4422BAA7CE00960770 /* AKMaskField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AKMaskField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CAF1E4622BAAB0B00960770 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5CAF1E4822BAB1FA00960770 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5CAF1E4A22BAB44100960770 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CAF1E4C22BAE0E800960770 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CAF1E4F22BBBD7500960770 /* ListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
 		5CAF1E5222BBD84F00960770 /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
@@ -53,7 +49,6 @@
 			files = (
 				5CAF1E4D22BAE0E800960770 /* SwiftyJSON.framework in Frameworks */,
 				5CAF1E4722BAAB0B00960770 /* Alamofire.framework in Frameworks */,
-				5CAF1E4522BAA7CE00960770 /* AKMaskField.framework in Frameworks */,
 				92B7F6D3FE087B70BD101612 /* Pods_l_tech_test.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,10 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				5CAF1E4C22BAE0E800960770 /* SwiftyJSON.framework */,
-				5CAF1E4A22BAB44100960770 /* SwiftyJSON.framework */,
-				5CAF1E4822BAB1FA00960770 /* SwiftyJSON.framework */,
 				5CAF1E4622BAAB0B00960770 /* Alamofire.framework */,
-				5CAF1E4422BAA7CE00960770 /* AKMaskField.framework */,
 				E5447E15DE95C27209119372 /* Pods_l_tech_test.framework */,
 			);
 			name = Frameworks;

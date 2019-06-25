@@ -7,14 +7,16 @@
 //
 
 import UIKit
-import AKMaskField
+import InputMask
 import Alamofire
 import SwiftyJSON
 
-class AuthorizationController: UIViewController {
+class AuthorizationController: UIViewController, MaskedTextFieldDelegateListener {
 
-    @IBOutlet weak var textPhoneNumber: AKMaskField!
+    @IBOutlet weak var textPhoneNumber: UITextField!
     @IBOutlet weak var textPassword: UITextField!
+    var listener: MaskedTextFieldDelegate?
+    var mask: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,22 +32,28 @@ class AuthorizationController: UIViewController {
     
     // Вызов после получения маски с сервера
     func setPhoneMaskAfter(maskExpression: String){
-        textPhoneNumber.maskExpression = getCodeForMask(mask: maskExpression)
+        
+        mask = getCodeForMask(mask: maskExpression)
+        
+        listener = MaskedTextFieldDelegate(format: mask)
+        listener?.delegate = self
+        textPhoneNumber.delegate = listener
+        textPhoneNumber.isEnabled = true
         textPhoneNumber.placeholder = maskExpression
     }
     
-    func getCodeForMask(mask: String) -> String {
+    func getCodeForMask(mask: String) -> String! {
         
         var lastX = false
-        var newMask = ""
+        var newMask: String! = ""
         
         for character in mask {
             if character == "Х" && lastX == false {
-                newMask.append("{")
+                newMask.append("[")
                 newMask.append(character)
                 lastX = true
             } else if character != "Х" && lastX == true{
-                newMask.append("}")
+                newMask.append("]")
                 newMask.append(character)
                 lastX = false
             } else{
@@ -53,9 +61,9 @@ class AuthorizationController: UIViewController {
             }
         }
         
-        newMask.append("}")
+        newMask.append("]")
         
-        return newMask.replacingOccurrences(of: "Х", with: "d")
+        return newMask.replacingOccurrences(of: "Х", with: "0")
     }
  
     @IBAction func tapSignIn(_ sender: UIButton) {
@@ -71,7 +79,7 @@ class AuthorizationController: UIViewController {
     func authAfter(success: Bool, params: [String: Any]){
         if success{
             var paramsToSave: [String: Any] = params
-            paramsToSave.updateValue(textPhoneNumber.maskExpression ?? "", forKey: "maskExpression")
+            paramsToSave.updateValue(mask, forKey: "maskExpression")
             paramsToSave.updateValue(textPhoneNumber.placeholder ?? "", forKey: "placeholder")
             setAuthData(params: paramsToSave)
             openList()
@@ -92,19 +100,13 @@ class AuthorizationController: UIViewController {
         let defaults = UserDefaults.standard
         if let params = defaults.dictionary(forKey: "userAuthData") {
             
-            if let maskExpression = params["maskExpression"] as? String{ // Если маска была получена и сохранена телефон записывается с учетом кода
-                let countryCode = decodeNumber(phoneNumber: maskExpression)
-                var phone = params["phone"] as? String
-                phone?.removeFirst(countryCode.count)
-                textPhoneNumber.maskExpression = maskExpression
-                textPhoneNumber.placeholder = params["placeholder"] as? String
-                textPhoneNumber.text = phone
-            }
-            else{
-                textPhoneNumber.text = params["phone"] as? String
-            }
+            let maskExpression = params["maskExpression"] as! String
             
+            setPhoneMaskAfter(maskExpression: maskExpression)
+            
+            textPhoneNumber.text = params["phone"] as? String
             textPassword.text = params["password"] as? String
+            
             return true
         }
         return false
@@ -135,4 +137,3 @@ class AuthorizationController: UIViewController {
     }
     
 }
-

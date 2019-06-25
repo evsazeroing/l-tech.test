@@ -10,7 +10,8 @@
 #endif
 #endif
 
+#import "InputMask.h"
 
-FOUNDATION_EXPORT double AKMaskFieldVersionNumber;
-FOUNDATION_EXPORT const unsigned char AKMaskFieldVersionString[];
+FOUNDATION_EXPORT double InputMaskVersionNumber;
+FOUNDATION_EXPORT const unsigned char InputMaskVersionString[];
 
